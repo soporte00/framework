@@ -76,6 +76,10 @@ class _files
     public static function remove($file, $dir = false)
     {
 
+        if (!defined('CONSOLE')) {
+            return false;
+        }
+
         $realFile = explode('/', $file);
         array_pop($realFile);
         $folder = implode('/', $realFile);
