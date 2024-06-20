@@ -15,22 +15,22 @@ $_COOKIE = [];
 //Global functions
 function _red(string $text)
 {
-    echo "\n\e[1;31m$text\e[0m\n";
+    echo "\e[1;31m$text\e[0m\n";
 }
 
 function _green(string $text)
 {
-    echo "\n\e[1;32m$text\e[0m\n";
+    echo "\e[1;32m$text\e[0m\n";
 }
 
 function _yellow(string $text)
 {
-    echo "\n\e[1;33m$text\e[0m\n";
+    echo "\e[1;33m$text\e[0m\n";
 }
 
 function _blue(string $text)
 {
-    echo "\n\e[1;34m$text\e[0m\n";
+    echo "\e[1;34m$text\e[0m\n";
 }
 
 //CFG file
