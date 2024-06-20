@@ -62,7 +62,7 @@ $_fileRequest = dirname(__FILE__) . "/_" . $_class[0] . ".php";
 if (is_readable($_fileRequest)) {
 
     $_instance = '\core\_' . $_class[0];
-    $_instance = new $_instance($argv);
+    $_instance = new $_instance(array_slice($argv, 2));
     $_method = isset($_class[1]) ? $_class[1] : 'index';
 
     call_user_func([$_instance, method_exists($_instance, $_method) ? $_method : 'index']);
