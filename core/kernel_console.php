@@ -33,6 +33,12 @@ function _blue(string $text)
     echo "\e[1;34m$text\e[0m\n";
 }
 
+function route(string $path = '', bool $redirect = false, int $sleepSeconds = 1)
+{
+    return $path;
+}
+
+
 //CFG file
 require_once dirname(__FILE__, 2) . "/config/env.php";
 

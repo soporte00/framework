@@ -11,6 +11,7 @@ trait _paths{
     public $databaseFolder = "./database/";
     public $uploadFolder = "./public/assets/upload/";
     public $unitTestFolder = "./test/";
+    public $publicFolder = "./public/";
     public $jsFolder = "./public/assets/js/";
 
     public function nspace(string $path): string
