@@ -16,7 +16,7 @@ class console
             if ($type === 'error') {
                 _red('|--> ' . $message);
             } elseif ($type === 'warning') {
-                _yellow('|--> ' . $message);
+                _yellow('- ' . $message);
             } elseif ($type === 'fine') {
                 _blue($message);
             } else {

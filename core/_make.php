@@ -23,7 +23,7 @@ class _make extends console
     {
 
         if (!isset($this->params[3])) {
-            $this->message('You must espcify a module name, for example', 'warning');
+            $this->message('You must espcify a module name, for example', 'error');
             $this->message("~\$php console make:mvc:MyModuleName\n", 'fine');
             return false;
         }
