@@ -18,19 +18,17 @@ function route(string $path = '', bool $redirect = false, int $sleepSeconds = 1)
 
 
 // Parse URI
-preg_match('/^\/?(api)?([a-zA-Z0-9\-_]+)?\/?([a-zA-Z0-9]+)?\/?([a-zA-Z0-9\/\-_]+)?\??/', $_SERVER['REQUEST_URI'], $_REQUEST);
+preg_match('/^\/?(api)?\/?([a-zA-Z0-9\-_]+)?\/?([a-zA-Z0-9]+)?\/?([a-zA-Z0-9\/\-_]+)?\??/', $_SERVER['REQUEST_URI'], $_REQUEST);
 
 $_api = isset($_REQUEST[1]) && $_REQUEST[1] === 'api';
 $_controller = isset($_REQUEST[2]) ? $_REQUEST[2] : 'home';
 $_method = isset($_REQUEST[3]) ? $_REQUEST[3] : 'index';
 $_params = isset($_REQUEST[4]) ? $_REQUEST[4] : false;
 
-
 if($_api){
     require_once "router-api.php";
     die();
  }
-
 
  /**
  *
