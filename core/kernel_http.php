@@ -6,6 +6,12 @@
  * 
  */
 
+//Global Vars
+define('HTTP', true);
+
+//CFG file
+require_once dirname(__FILE__, 2) . '/config/env.php';
+
 // hide errors and warnings
 ini_set('display_startup_errors', 0);
 ini_set('display_errors', 0);
@@ -17,13 +23,6 @@ if (DEBUG) {
     ini_set('display_errors', 1);
     error_reporting(E_ALL);
 }
-
-//Global Vars
-define('HTTP', true);
-
-//CFG file
-require_once dirname(__FILE__, 2) . '/config/env.php';
-
 
 if (VENDOR) {
 
