@@ -6,6 +6,7 @@ trait _paths{
     public $apiControllerFolder = "./src/api_controllers/";
     public $modelFolder = "./src/models/";
     public $viewFolder = "./src/views/";
+    public $layoutsFolder = "./src/views/layouts";
     public $configFolder = "./config/";
     public $htaccessFile = "./.htaccess";
     public $databaseFolder = "./database/";

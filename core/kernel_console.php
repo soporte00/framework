@@ -39,11 +39,7 @@ function route(string $path = '', bool $redirect = false, int $sleepSeconds = 1)
 }
 
 
-//CFG file
-require_once dirname(__FILE__, 2) . "/config/env.php";
-
-
-if (VENDOR) {
+if (defined('VENDOR') && VENDOR) {
 
     // Vendor autoloader
     $vendorAutoload = dirname(__FILE__, 2) . '/vendor/autoload.php';
@@ -59,6 +55,55 @@ if (VENDOR) {
     require_once dirname(__FILE__) . "/autoloader.php";
 }
 
+
+
+/**
+ * 
+ *  Getting envrionment configuration
+ * 
+ */
+
+$_cfg = dirname(__FILE__, 2) . "/config/env.php";
+
+
+if (is_readable($_cfg)) {
+
+    /**
+     * Requiring env.php file
+     */
+    require_once $_cfg;
+} else {
+
+    /**
+     * 
+     *  CFG file doesn't exist !!
+     * 
+     */
+    _red("Fatal Error!! env.php configration file doesn't exist it wil be created");
+
+    $gettingFiles = glob(dirname(__FILE__, 2) . '/core/templates/config/*');
+
+    $maker = new core\_files();
+
+    foreach ($gettingFiles as $k) {
+
+        preg_match('/.*?([a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+)$/', $k, $match);
+
+        $maker->file(
+            './config/' . $match[1],
+            true,
+            file_get_contents($k)
+        );
+    }
+}
+
+
+
+/**
+ * 
+ *  Getting parameters and starting classes
+ *  
+ */
 
 $_class = explode(':', $argv[1]);
 

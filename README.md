@@ -1,20 +1,13 @@
 # Objetivo
 Este es un "micro framework" php el cual te ayudará de una forma rápida a crear una página web con los mínimos requerimientos para un buen funcionamiento.
 
-## Autoload
-El software admite el uso de dependencias instaladas con composer, para ello deberemos configurar el archivo ./config/env.php e instalar la aplicación correspondiente usando el metodo de composer:
-	ej: composer require spipu/html2pdf
- 
- Esto generará una carpeta llamada vendor, la cual incluye un autoload para cargar todas las dependencias que instalemos allí. Luego de la instalación deberemos correr
- el comando 
-#### ~$composer dump 
-
- Este comando actualizará la configuración de dependencias en el autoload
-
-
 ## Consola
-Este framework tiene un sistema automatizado, para la creación de componentes internos como controlladores, modelos, vistas, etc. Tambien puede levantar un servidor para 
+El framework tiene un sistema automatizado, para la creación de componentes internos como controlladores, modelos, vistas, etc. Tambien puede levantar un servidor para 
 hacer pruebas, entre otras muchas funciones.
+
+#### Init
+Una vez copiado el proyecto, deberá inicializarlo para crear los archivos por defecto utilizando el siguiente comando.
+#### ~$php console init
 
 #### -> SERVE
 Para iniciar un servidor de prueba puede emplear el siguiente comando:
@@ -45,6 +38,18 @@ Crea el controlador API solicitado.
 #### ~$php console make:model nombre_de_mi_modulo
 Crea el modelo solicitado.
 
+#### ~$php console make:layout nombre_de_mi_layout
+Crea el layout solicitado para extender en una vista.
+
+## Autoload
+El software admite el uso de dependencias instaladas con composer, para ello deberemos configurar el archivo ./config/env.php e instalar la aplicación correspondiente usando el metodo de composer:
+	ej: composer require spipu/html2pdf
+ 
+ Esto generará una carpeta llamada vendor, la cual incluye un autoload para cargar todas las dependencias que instalemos allí. Luego de la instalación deberemos correr
+ el comando 
+#### ~$composer dump 
+
+ Este comando actualizará la configuración de dependencias en el autoload
 
 ## API
 Este software permite el uso de metodos API. Al hacer una llamada http a la url base del servidor, seguido del parametro api, el sistema entenderá que debe 
@@ -85,6 +90,8 @@ Se recomienda que en todos los controladores API se use el renderizado JSON, el 
 
 
 ## Render 
+
+### View
 El framework cuenta con un sistema que facilita el llamado a la vista usando la función render::view(), esta función tambien se encarga de pasarle
 variables a la vista mediante el segundo parametro. Veamos un ejemplo:
 
@@ -99,49 +106,107 @@ variables a la vista mediante el segundo parametro. Veamos un ejemplo:
 
 Para recibir estos parametros podemos ir a la carpeta de vistas y abrir el archivo ./src/views/principal/index.php ej:
 
-            <?=self::html()?>
+	<?= self::layout('main.php')?>
 
-            <?=self::body()?>
+	<?= html()?>
 
-                        <div class="centered-column padd4">
-                            <h2> <?=$controllerName?> </h2>
-                            <img src="<?= asset('img/icons/tool.svg') ?>" width="50px">
-                        </div>
+	<?= body()?>
 
-            <?=self::end()?>
+		<h1><?= $controllerName?></h1>
+
+		<div>
+		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit quasi modi et nemo quam sed ea facere omnis explicabo nesciunt?.       
+		</div>
+
+	<?= close()?>
+
+
            
-Aquí podemos ver el uso del parámetro pasado anteriormente controllerName como si fuera una simple variable precargada. Tambien podemos darnos cuenta
-del uso de la función asset() la cual nos dará un enlace directo a la carpeta asset la cual se encuentra dentro de la carpeta ./public y donde se deberá 
-alojar todo el contenido el cual será llamado luego y no tendrá ninguna restricción de acceso, ej: imágenes, css, js, fonts, etc.
+Aquí podemos ver el uso del parámetro pasado anteriormente controllerName como si fuera una simple variable precargada.
 
-En el ejemplo anterior podemos ver las funciones self::html(), self::body() y self::end(), estas delimitan la hoja de vista para luego insertar una plantilla html.
-Entre las funciones self::html() podemos insertar código html el cual se cargará en la cabecera del documento, osea lo que corresponde
+En el ejemplo anterior podemos ver las funciones self::layout() donde especificamos el layout el cual extenderemos a nuestra vista, tambien podemos notar las funciones
+html(), body() y close(), estas delimitan la hoja de vista e insertan los componentes del layout del cual extendimos anteriormente.
+Entre las funciones html() y body() podemos insertar código html el cual se cargará en la cabecera del documento, osea lo que corresponde
 entre las etiquetas 
 	
 	<header> Mis etiquetas cargadas en la vista </header>
 
 ejemplo:
 
+	<?= self::layout('main.php')?>
 
-	<?=self::html()?>
-				<link rel="stylesheet" href="<?= asset('css/custom_items.css') ?>" />
-	<?=self::body()?>
+	<?= html()?>
+		<link rel="stylesheet" href="<?= asset('css/custom_items.css') ?>" />
+	<?= body()?>
 
-				<div class="centered-column padd4">
-					<h2> <?=$controllerName?> </h2>
-					<img src="<?= asset('img/icons/tool.svg') ?>" width="50px">
-				</div>
+		<h1><?= $controllerName?></h1>
 
-	<?=self::end()?>
+		<div>
+		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit quasi modi et nemo quam sed ea facere omnis explicabo nesciunt?.       
+		</div>
 
-Tambien podremos pasar parámetros a la función self::html() para modificar datos de posicionamiento en el header de la plantilla. 
+	<?= close()?>
+
+Tambien podremos pasar parámetros a la función html() para modificar datos de posicionamiento en el header de la plantilla. 
 Estos datos pueden ser:
 
-	self::html([
-			"lang" => 'en_EN',
-			"title" => 'Mi sitio web',
-			"type" => 'website',
-			"description" => 'This is a small framework very light and versatile',
-			"keywords" => 'Micro FrameWork small versatile mi sitio web',
-			"url" => 'https://mi-url-custom/',
+	html([
+		"lang"=>"es",
+		"sitename"=>"My Site Name",
+		"title"=>"My Site",
+		"type"=>'website',
+		"description"=>"Micro framework",
+		"keywords"=>"framework micro microframework",
+		"supportEmail"=>"support@my_site.com"
 	])
+
+
+### Json
+De la misma forma que contamos con un renderizador de vistas tambien podemos usar un sistema preestablecido para renderizar salidas del tipo json.
+ Para iniciar el renderizado json debemos llamar a render::json(). Dentro de este llamado podemos establecer el número de respuesta, el cual será enviado en la cabeceras y en el body de la respuesta, por ejemplo render::json(404). 
+ Por defecto la función json() devolverá una cabecera 200, en el caso de no especificar ninguna.
+Para finalizar el renderizado devemos llamar a la función de salida ->out(); quedando de la siguiente manera. render::json(404)->out();
+ Si queremos enviar contenido en el body del mensaje podemos cargarlo dentro de la función de salida, por ejemplo: 
+render::json()->out(\[ "misdatos"=>\[MiData...] ]);
+ 
+ Tambien se puede agregar un mensaje, usando la función ->message('Mi mensaje'), veamos los siguientes ejemplos con todas las funciones incorporadas.
+
+Ejemplos:
+
+##### Ejemplo1: 
+
+	render::json(403)
+		->message('No tiene permiso para usar esta API','e')
+		->out();
+
+
+
+	Resultado de la página:
+	
+	{
+	"status":403
+	"message":"No tiene permiso para usar esta API",
+	"content":false,	
+	}
+			
+
+
+
+
+##### Ejemplo2: 
+
+	render::json()
+		->message('Estos son los datos de búsqueda')
+		->out( $MySql_example );
+
+	
+	Resultado de la página:
+	
+		{
+		"status": 200,
+		"message":"Estos son los datos de búsqueda",
+		"content":[
+			{"name":"David","age":35,"job":"Developer"},
+			{"name":"Rodrigo","age":18,"job":"seller"}
+			]
+		}

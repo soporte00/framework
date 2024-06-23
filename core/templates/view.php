@@ -1,13 +1,13 @@
-<?= self::html() ?>
+<?= self::layout('main.php')?>
 
-<?= self::body() ?>
+<?= html()?>
 
-<div class="padd1">
+<?= body()?>
 
-    <div class="centered flex-column padd40">
-        <h2> <?= $controllerName ?> </h2>
-        <img src="<?= asset('img/icons/tool.svg') ?>" width="50px">
+    <h1><?= $controllerName?></h1>
+
+    <div>
+       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit quasi modi et nemo quam sed ea facere omnis explicabo nesciunt?.       
     </div>
-</div>
-<script src="<?= asset('js/%module%/main.js') ?>\" type="module"></script>
-<?= self::end() ?>
+
+<?= close()?>

@@ -8,7 +8,7 @@ class _make extends console
 {
     use _paths;
 
-    private $params = false;
+    protected $params = false;
 
     public function __construct($params)
     {
@@ -107,7 +107,7 @@ class _make extends console
         );
     }
 
-    private function view()
+    protected function view()
     {
 
         if (!isset($this->params[0])) {
@@ -125,4 +125,46 @@ class _make extends console
             str_replace('%module%', $this->params[0], file_get_contents('./core/templates/view.php'))
         );
     }
+
+    public function layout()
+    {
+
+        if (!isset($this->params[0])) {
+            $this->message('You must espcify a layout name, for example', 'error');
+            $this->message("~\$php console make:layout MyLayoutName\n", 'fine');
+            return false;
+        }
+
+        $this->message('Make -> View - Layout: ' . $this->params[0], 'fine');
+
+        //make -> view
+        _files::file(
+            $this->layoutsFolder .'/'. $this->params[0] . '.php',
+            true,
+            str_replace('%module%', $this->params[0], file_get_contents('./core/templates/layouts.php'))
+        );
+    }
+
+
+    protected function defaultView()
+    {
+
+        $this->message('Make -> default View: ' . $this->params[0], 'fine');
+        
+
+        $gettingFiles = glob(dirname(__FILE__, 2) . '/core/templates/default/*');
+    
+    
+        foreach ($gettingFiles as $k) {
+    
+            preg_match('/.*?([a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+)$/', $k, $match);
+    
+            _files::file(
+                $this->viewFolder .'/default/'. $match[1],
+                true,
+                file_get_contents($k)
+            );
+        }
+    }
+
 }

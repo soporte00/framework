@@ -5,9 +5,23 @@ class render{
 	private $mssg=null,$statusCode;
 
 
-    public static function view(string $path){
-        return $path;
-    }
+	/**
+	 * Render Layout
+	 */
+	public static function layout($file): void {
+		require_once dirname(__FILE__, 2) . "/src/views/layouts/" . $file;	
+	}
+
+	/**
+	 * Render view file
+	 * @param string $url '/principal/index.php'
+	 * @param array $viewData ['firstData'=>'Principal','otherData'=>'Data']
+	 */
+	public static function view(string $url,array $viewData=[])
+	{
+		extract($viewData);
+		require_once dirname(__FILE__, 2) . "/src/views/" . $url;
+	}
 
 
 	/**
