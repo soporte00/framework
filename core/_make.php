@@ -48,6 +48,26 @@ class _make extends console
     }
 
 
+    public function apicontroller()
+    {
+
+        if (!isset($this->params[0])) {
+            $this->message('You must espcify a module name, for example', 'error');
+            $this->message("~\$php console make:apicontroller MyModuleName\n", 'fine');
+            return false;
+        }
+
+        $this->message('Make -> API Controller Module for: ' . $this->params[0], 'fine');
+
+        //make ->  api controller
+        _files::file(
+            $this->apiControllerFolder . $this->params[0] . 'Controller.php',
+            true,
+            str_replace('%module%', $this->params[0], file_get_contents('./core/templates/apicontroller.php'))
+        );
+    }
+
+
     public function controller()
     {
 
