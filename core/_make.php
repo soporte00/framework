@@ -124,6 +124,13 @@ class _make extends console
             true,
             str_replace('%module%', $this->params[0], file_get_contents('./core/templates/view.php'))
         );
+
+        _files::file(
+            $this->jsFolder .'/'. $this->params[0] . '/main.js',
+            true,
+            str_replace('%module%', $this->params[0], file_get_contents('./core/templates/main.js'))
+        );
+
     }
 
     public function layout()

@@ -16,6 +16,10 @@ function route(string $path = '', bool $redirect = false, int $sleepSeconds = 1)
 }
 
 
+function asset($url=null){
+	return route( str_replace('//','/', '/assets/' . $url) );
+}
+
 
 // Parse URI
 preg_match('/^\/?(api)?\/?([a-zA-Z0-9\-_]+)?\/?([a-zA-Z0-9]+)?\/?([a-zA-Z0-9\/\-_]+)?\??/', $_SERVER['REQUEST_URI'], $_REQUEST);

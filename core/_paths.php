@@ -13,6 +13,7 @@ trait _paths{
     public $uploadFolder = "./public/assets/upload/";
     public $unitTestFolder = "./test/";
     public $publicFolder = "./public/";
+    public $assetsFolder = "./public/assets/";
     public $jsFolder = "./public/assets/js/";
 
     public function nspace(string $path): string
