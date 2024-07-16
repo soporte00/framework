@@ -1,5 +1,9 @@
 # Objetivo
-Este es un "micro framework" php el cual te ayudará de una forma rápida a crear una página web con los mínimos requerimientos para un buen funcionamiento.
+Este es un "micro framework" php el cual fue diseñado para comprender el funcionamiento de los frameworks y sus estructuras.
+
+El principio fundamental de este framework se basa en el "No" uso de librerias, apostando a que el desarrollador conozca por completo, la herramienta que está usando. Bajo esta misma lógica, el núcleo del framework se encuentra totalmente expuesto en la ruta principal del mismo, se usan rutas claras y con nombres coherentes a su función.
+
+Si bien es un proyecto de aprendizaje, es totalmente funcional y de amplio uso, podemos realizar un proyecto web tradicional o una REST API.
 
 ## Consola
 El framework tiene un sistema automatizado, para la creación de componentes internos como controlladores, modelos, vistas, etc. Tambien puede levantar un servidor para 
