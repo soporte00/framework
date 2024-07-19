@@ -126,7 +126,7 @@ class _make extends console
         );
 
         _files::file(
-            $this->jsFolder .'/'. $this->params[0] . '/main.js',
+            $this->jsFolder . $this->params[0] . '/main.js',
             true,
             str_replace('%module%', $this->params[0], file_get_contents('./core/templates/main.js'))
         );
