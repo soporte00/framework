@@ -39,24 +39,6 @@ function route(string $path = '', bool $redirect = false, int $sleepSeconds = 1)
 }
 
 
-if (defined('VENDOR') && VENDOR) {
-
-    // Vendor autoloader
-    $vendorAutoload = dirname(__FILE__, 2) . '/vendor/autoload.php';
-
-    if (file_exists($vendorAutoload)) {
-        require_once $vendorAutoload;
-    } else {
-        _red("Vendor Autoloader not found!!");
-    }
-} else {
-
-    //Main autoloader
-    require_once dirname(__FILE__) . "/autoloader.php";
-}
-
-
-
 /**
  * 
  *  Getting envrionment configuration
@@ -81,6 +63,10 @@ if (is_readable($_cfg)) {
      */
     _red("Fatal Error!! env.php configration file doesn't exist it wil be created");
 
+
+    //Main autoloader
+    require_once dirname(__FILE__) . "/autoloader.php";
+
     $gettingFiles = glob(dirname(__FILE__, 2) . '/core/templates/config/*');
 
     $maker = new core\_files();
@@ -95,6 +81,28 @@ if (is_readable($_cfg)) {
             file_get_contents($k)
         );
     }
+}
+
+
+
+
+/**
+ * Autoloader
+ */
+if (defined('VENDOR') && VENDOR) {
+
+    // Vendor autoloader
+    $vendorAutoload = dirname(__FILE__, 2) . '/vendor/autoload.php';
+
+    if (file_exists($vendorAutoload)) {
+        require_once $vendorAutoload;
+    } else {
+        _red("Vendor Autoloader not found!!");
+    }
+} else {
+
+    //Main autoloader
+    require_once dirname(__FILE__) . "/autoloader.php";
 }
 
 
