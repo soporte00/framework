@@ -5,7 +5,9 @@
         "psr-4": {
             "core\\": "core/",
             "src\\": "src/",
-            "config\\": "config/"
+            "config\\": "config/",
+            "test\\": "test/",
+            "database\\": "database/"
         }
     }
 }
