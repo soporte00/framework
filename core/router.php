@@ -47,9 +47,10 @@ if (SPA) {
 
 	if (!is_file($file)) {
 		core\render::view('default/404.php');
+		die();
 	}
 
-	echo str_replace('/assets/',  route() . '/assets/',  file_get_contents($file));
+	echo str_replace('/assets/',  route('/dist') . '/assets/',  file_get_contents($file));
 	die();
 }
 

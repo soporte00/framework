@@ -1,5 +1,8 @@
 <?php
 
+//CFG file
+require_once dirname(__FILE__, 2) . '/config/api.php';
+
 /**
  * Allow Cors
  */
