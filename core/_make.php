@@ -184,5 +184,11 @@ class _make extends console
             true,
             '*** LOG FILE ***'.PHP_EOL
         );
+
+        _files::file(
+            $this->logFolder . 'datedLogs/',
+            true
+        );
+
     }
 }

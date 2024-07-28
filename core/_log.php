@@ -15,6 +15,10 @@ class _log extends console{
     }
 
     public function create(){
-        logMaker::create()->general($this->params[0]);              
+        logMaker::create()->log($this->params[0]);              
+    }
+
+    public function create_dated(){
+        logMaker::create()->datedLog($this->params[0]);              
     }
 }
