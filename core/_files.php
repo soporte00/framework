@@ -25,7 +25,7 @@ class _files
             if (!is_dir($folder) && $create) {
                 _yellow("the folder {$folder} doesn't exist, it wil be created!");
 
-                if (!mkdir($folder, 0777, true)) {
+                if (!mkdir($folder, 0744, true)) {
                     _red("Could not create {$folder} folder");
                     return false;
                 }
