@@ -13,5 +13,6 @@ class _init extends _make
         $this->params[0] = 'main';
         $this->layout();
         $this->defaultView();
+        $this->logFile();
     }
 }

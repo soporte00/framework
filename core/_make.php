@@ -130,7 +130,6 @@ class _make extends console
             true,
             str_replace('%module%', $this->params[0], file_get_contents('./core/templates/main.js'))
         );
-
     }
 
     public function layout()
@@ -146,7 +145,7 @@ class _make extends console
 
         //make -> view
         _files::file(
-            $this->layoutsFolder .'/'. $this->params[0] . '.php',
+            $this->layoutsFolder . '/' . $this->params[0] . '.php',
             true,
             str_replace('%module%', $this->params[0], file_get_contents('./core/templates/layouts.php'))
         );
@@ -157,21 +156,33 @@ class _make extends console
     {
 
         $this->message('Make -> default View: ' . $this->params[0], 'fine');
-        
+
 
         $gettingFiles = glob(dirname(__FILE__, 2) . '/core/templates/default/*');
-    
-    
+
+
         foreach ($gettingFiles as $k) {
-    
+
             preg_match('/.*?([a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+)$/', $k, $match);
-    
+
             _files::file(
-                $this->viewFolder .'/default/'. $match[1],
+                $this->viewFolder . '/default/' . $match[1],
                 true,
                 file_get_contents($k)
             );
         }
     }
 
+
+    protected function logFile()
+    {
+
+        $this->message('Make -> logFile: ' . $this->params[0], 'fine');
+
+        _files::file(
+            $this->logFolder . 'log.txt',
+            true,
+            '*** LOG FILE ***'.PHP_EOL
+        );
+    }
 }
