@@ -3,3 +3,4 @@ vendor/
 config/
 package-lock.json
 examples/
+log/
