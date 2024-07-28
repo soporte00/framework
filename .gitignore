@@ -2,3 +2,4 @@ node_modules/
 vendor/
 config/
 package-lock.json
+examples/
