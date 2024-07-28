@@ -6,9 +6,6 @@
  * 
  */
 
-//Global Vars
-define('HTTP', true);
-
 //CFG file
 require_once dirname(__FILE__, 2) . '/config/env.php';
 
