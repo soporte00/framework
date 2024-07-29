@@ -22,7 +22,7 @@ Este comando iniciará un servidor el cual puede ser accedido solamente desde tu
 Con este comando puedes iniciar un servidor el cual puede ser accedido desde tu red local.
 
 #### ~$php console serve:local 3500
-si le agregamos una bandera luego dle comando original, podemos especificarle al servidor que corra sobre este puerto, de lo contrario intentará iniciarlo en el puerto 8000
+si le agregamos una bandera luego del comando original, podemos especificarle al servidor que corra sobre este puerto, de lo contrario intentará iniciarlo en el puerto 8000
 
 #### -> MAKE
 
@@ -214,3 +214,42 @@ Ejemplos:
 			{"name":"Rodrigo","age":18,"job":"seller"}
 			]
 		}
+
+
+## CSS :
+
+### Micro framework css
+
+La aplicación cuenta con un micro framework css diseñado para estructuras y estilos básicos.
+
+El micro framework css se encuentra cargado desde el layout principal, por defecto y puedes revisarlo en la carpeta 
+	
+	./public/assets/css
+
+
+## Logs : 
+
+### Log general
+
+Puedes crear un log histórico usando la siguiente función:
+
+	logMaker::create()->log('Mensaje de prueba');
+
+Estos mensajes seran cargados en un archivo, llamado log.txt el cual se encuentra en:
+	
+	./log/log.txt
+
+
+### Log datado
+
+Tambien se puede crear un historial de logs en múltiples archivos, los cuales son nombrados con la fecha de creación "YYYY-mm-dd.txt". 
+
+Para usar el log datado puedes hacerlo usando el siguiente código:
+
+	logMaker::create()->datedLog('Mensaje de prueba');
+
+Estos mensajes seran cargados en la sub carpeta, datedLogs
+	
+	./log/datedLogs/2024-01-01.txt
+	./log/datedLogs/2024-01-02.txt
+	./log/datedLogs/2024-02-01.txt
