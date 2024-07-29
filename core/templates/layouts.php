@@ -21,6 +21,11 @@ function html($tags = HEADCFG)
     <meta property="og:site_name" content="<?= $tags['sitename'] ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="<?= route() ?>" />
+    <!-- css -->
+    <link rel="stylesheet" href="<?= asset('/css/normalize.css') ?>">
+    <link rel="stylesheet" href="<?= asset('/css/structure.css') ?>">
+    <link rel="stylesheet" href="<?= asset('/css/template.css') ?>">
+    <link rel="stylesheet" href="<?= asset('/css/style.css') ?>">
     <!-- Head content -->
 <?php
 }
@@ -31,8 +36,16 @@ function body()
 ?>
     </head>
     <body>
-    <!-- Body content -->
-
+        <!-- Body content -->
+        <header class="main__header">
+            <div class="between padd05">
+                <div class="padd05">
+                    <a href="https://github.com/soporte00" target="_blank">Soporte00</a>
+                </div>
+                <div class="padd05">Menú</div>
+            </div>
+        </header>
+        <main class="main__content">
 <?php
 }
 
@@ -40,9 +53,11 @@ function body()
 function close()
 {
 ?>
-
         <!-- Body end -->
-        <a href="mailto:<?=HEADCFG['supportEmail']?>"> <?=HEADCFG['supportEmail']?> </a>
+        </main>
+        <footer class="main__footer centered back-lowlight padd10">
+            <a href="mailto:<?=HEADCFG['supportEmail']?>"> <?=HEADCFG['supportEmail']?> </a>
+        </footer>
     </body>
 </html>
 <?php

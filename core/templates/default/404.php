@@ -7,7 +7,7 @@ self::layout('main.php')
 
 <?= body() ?>
 
-<div class="centered">
+<div class="centered flex-column">
     <h4>ERROR 404. No se encontró la página.</h4>
     <a href="<?= route() ?>" title="Volver a la página principal">Pág. principal</a>
 </div>

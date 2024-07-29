@@ -1,0 +1,114 @@
+/*base styles*/
+:root {
+    --headerBack: #204060;
+    --headerText: #e0e0e0;
+    --bodyBack: #efefef;
+    --bodyText: #303040;
+    --lucid: #e05050;
+    --warning: #ff9000;
+    --danger: #802020;
+    --fine: #208020;
+    --normal: #303040;
+    --radius: .3rem;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 15px;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background: var(--bodyBack);
+    margin: 0;
+    color: var(--bodyText);
+  }
+  
+  a {
+    font-size: 1rem;
+    display: inline;
+    text-decoration: none;
+    color: var(--cD);
+  }
+  
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bolder;
+    margin: 1.5rem .5rem;
+  }
+  
+  h1 {
+    font-size: 1.7rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+  }
+  
+  h4 {
+    font-size: 1rem;
+  }
+  
+  
+  hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    width: 98%;
+    color: var(--cC);
+  }
+  
+  code,
+  pre {
+    font-family: monospace, monospace;
+    font-size: 1em;
+  }
+  
+  sub,
+  sup {
+    font-size: 72%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+    color: var(--cL);
+  }
+  
+  small {
+    font-size: 80%;
+  }
+  
+  sub {
+    bottom: -0.25em;
+  }
+  
+  sup {
+    top: -0.5em;
+  }
+  
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+    border: 1px solid #B0B0C0;
+    padding: .5rem;
+    border-radius: var(--radius);
+  }

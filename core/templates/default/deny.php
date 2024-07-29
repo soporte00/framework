@@ -7,7 +7,7 @@ self::layout('main.php')
 
 <?= body() ?>
 
-<div class="centered">
+<div class="centered flex-column">
     <h4>Permiso denegado.</h4>
     <a href="<?= route() ?>" title="Volver a la página principal">Pág. principal</a>
 </div>

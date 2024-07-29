@@ -17,7 +17,7 @@ class _make extends console
 
     public function index()
     {
-        return $this->message('Try with: php console make:database | controller | model | mvc | vc | test', "warning");
+        return $this->message('Try with: php console make:database | controller | model | mvc | vc | defaultCss', "warning");
     }
 
     public function mvc()
@@ -152,6 +152,24 @@ class _make extends console
     }
 
 
+    protected function logFile()
+    {
+
+        $this->message('Make -> logFile: ' . $this->params[0], 'fine');
+
+        _files::file(
+            $this->logFolder . 'log.txt',
+            true,
+            '*** LOG FILE ***'.PHP_EOL
+        );
+
+        _files::file(
+            $this->logFolder . 'datedLogs/',
+            true
+        );
+    }
+
+
     protected function defaultView()
     {
 
@@ -173,22 +191,24 @@ class _make extends console
         }
     }
 
+    public function defaultCss(){
 
-    protected function logFile()
-    {
+        $this->message('Make -> default CSS: ', 'fine');
 
-        $this->message('Make -> logFile: ' . $this->params[0], 'fine');
 
-        _files::file(
-            $this->logFolder . 'log.txt',
-            true,
-            '*** LOG FILE ***'.PHP_EOL
-        );
+        $gettingFiles = glob(dirname(__FILE__, 2) . '/core/templates/assets/css/*');
 
-        _files::file(
-            $this->logFolder . 'datedLogs/',
-            true
-        );
 
+        foreach ($gettingFiles as $k) {
+
+            preg_match('/.*?([a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]+)$/', $k, $match);
+
+            _files::file(
+                $this->assetsFolder . '/css/' . $match[1],
+                true,
+                file_get_contents($k)
+            );
+        }
     }
+
 }

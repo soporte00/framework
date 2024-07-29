@@ -1,0 +1,31 @@
+body{
+    display: grid;
+    grid-template-rows: 4rem 1fr 4rem;
+}
+
+.main__header{
+    position:fixed;
+    top:0;
+    left:0;
+    grid-row: 1;
+    height: 4rem;
+    width: 100vw;
+    background-color: var(--headerBack);
+    color: var(--headerText);
+    z-index: 1;
+}
+
+.main__content{
+    grid-row: 2;
+    padding: .3rem;
+    height: calc(100vh - 8rem);
+}
+
+.main__footer{
+    position:fixed;
+    bottom:0;
+    left:0;
+    grid-row: 3;
+    padding: .3rem;
+    width: 100vw;
+}

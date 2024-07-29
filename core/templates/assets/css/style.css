@@ -1,0 +1,60 @@
+.st-fine{background-color:var(--fine); color:#efefef;}
+.st-warning{background-color:var(--warning); color:var(--normal);}
+.st-danger{background-color:var(--danger); color:#efefef;}
+.st-classic{background:#ffffff; color:var(--bodyText); border:1px solid #aaa;}
+.st-normal{background: var(--normal); color:#efefef;}
+.st-white{background-color: #FFFFFF; color: var(--normal);}
+.st-edit{background-color: azure; color: #404040; border:1px dashed #404040; outline: none;}
+.st-label{
+    font-family: "Courier New", Courier, monospace;
+    width: 100%;
+    display: block;
+    font-size: .72rem;
+    font-weight: 800;
+    white-space: nowrap;
+    user-select: none;
+}
+
+.back-highlight{background-color:rgba(255,255,255,.6);}
+.back-lowlight{background-color:rgba(50,50,50,.1);}
+.back-lucid{background-color:var(--lucid);}
+.back-warning{background-color:var(--warning);}
+.back-danger{background-color:var(--danger);}
+.back-fine{background-color:var(--fine);}
+.back-normal{background-color:var(--normal);}
+.back-white{background-color:#FFFFFF;}
+.back-hover:hover {background-color: rgba(50,50,90,.2);}
+
+.color-highlight{color:rgba(255,255,255,.6);}
+.color-lowlight{color:rgba(50,50,50,.1);}
+.color-lucid{color:var(--lucid);}
+.color-warning{color:var(--warning);}
+.color-danger{color:var(--danger);}
+.color-fine{color:var(--fine);}
+.color-normal{color:var(--normal);}
+.color-white{color:#FFFFFF;}
+
+.text-center{text-align: center;}
+.text-wrap{white-space:pre-wrap;}
+.text-nowrap{white-space:nowrap;}
+.text-noselect{user-select: none;}
+
+.bold{font-weight: bold;}
+
+.radius{border-radius: var(--radius);}
+.shadow{border: 1px solid transparent; box-shadow: 0px 2px 2px #aaa;}
+.pointer{cursor: pointer;}
+
+.updown{transform: rotate(-180deg);}
+
+.fs05{font-size:.5rem;}
+.fs08{font-size:.8rem;}
+.fs10{font-size: 1rem;}
+.fs12{font-size: 1.2rem;}
+.fs13{font-size: 1.3rem;}
+.fs15{font-size: 1.5rem;}
+.fs20{font-size: 2rem;}
+.fs25{font-size: 2.5rem;}
+.fs30{font-size: 3rem;}
+.fs35{font-size: 3.5rem;}
+.fs40{font-size: 4rem;}
