@@ -59,6 +59,5 @@ function close()
             <a href="mailto:<?=HEADCFG['supportEmail']?>"> <?=HEADCFG['supportEmail']?> </a>
         </footer>
     </body>
-</html>
-<?php
+</html><?php
 }
