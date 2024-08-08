@@ -45,6 +45,11 @@ Crea el modelo solicitado.
 #### ~$php console make:layout nombre_de_mi_layout
 Crea el layout solicitado para extender en una vista.
 
+#### ~$php console make:htaccess nombre_de_sub_carpeta
+Puedes crear un archivo .htaccess el cual redireccionará todo el tráfico a la ruta /public/
+Tambien puedes configurar el archivo, para que el sitio funcione en una sub carpeta, agregando una bandera
+con el nombre de la misma. 
+
 ## Autoload
 El software admite el uso de dependencias instaladas con composer, para ello deberemos configurar el archivo ./config/env.php e instalar la aplicación correspondiente usando el metodo de composer:
 	ej: composer require spipu/html2pdf

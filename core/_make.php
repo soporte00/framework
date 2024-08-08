@@ -17,7 +17,7 @@ class _make extends console
 
     public function index()
     {
-        return $this->message('Try with: php console make:database | controller | model | mvc | vc | defaultCss', "warning");
+        return $this->message('Try with: php console make:database | controller | model | mvc | vc | defaultCss | htaccess', "warning");
     }
 
     public function mvc()
@@ -211,4 +211,19 @@ class _make extends console
         }
     }
 
+
+    public function htaccess(){
+
+        $this->message('Make -> htaccess: ', 'fine');
+
+        if(!isset($this->params[0])){
+            $this->params[0] = '';
+        }
+
+        _files::file(
+            $this->htaccessFile,
+            true,
+            str_replace('%sub_folder%', $this->params[0], file_get_contents('./core/templates/.htaccess'))
+        );
+    } 
 }

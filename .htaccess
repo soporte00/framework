@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /test
+RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
+RewriteRule ^ %1 [L,NE,R=302]
+RewriteRule ^((?!public/)(.+)\.(.+))$ public/$1 [L,NC]
+RewriteRule ^((?!public/)(.*))$ public/index.php?url=$1 [L,QSA]
