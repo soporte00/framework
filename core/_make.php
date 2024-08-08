@@ -216,7 +216,7 @@ class _make extends console
 
         $this->message('Make -> htaccess: ', 'fine');
 
-        if(!isset($this->params[0])){
+        if(!isset($this->params[0]) || !$this->params[0]){
             $this->params[0] = '';
         }
 

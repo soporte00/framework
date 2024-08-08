@@ -17,7 +17,7 @@ class _init extends _make
         $this->defaultCss();
         $this->params[0] = 'home';
         $this->vc();
-        $this->params[0] = null;
+        $this->params[0] = false;
         $this->htaccess();
     }
 }
